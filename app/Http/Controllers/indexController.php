@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MenuServiceIntarface;
-use illuminate\Http\Request;
+use App\Services\SomeServiceInterface;
 
 
 class IndexController extends Controller
 {
-    private MenuServiceIntarface $menuService;
-    public function __construct(MenuServiceIntarface $menuService)
+    private SomeServiceInterface $menuService;
+    public function __construct(SomeServiceInterface $menuService)
     {
         $this->menuService = $menuService;
     }
     public function main()
     {
-        $abc = route('qwe');
-        $items = config('menu.items'); 
-               return view('index.main', ['menu'=> $this->meniService->getMenu()]);
+         $abc = route('home');
+         $items = config('menu.items'); 
+        
+        return view('index.main', ['menu'=> $this->menuService->getMenu()]);
     }
 }

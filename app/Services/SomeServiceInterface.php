@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-interface MenuServiceIntarface
+interface SomeServiceInterface 
 {
     public function getMenu(): array;
 }

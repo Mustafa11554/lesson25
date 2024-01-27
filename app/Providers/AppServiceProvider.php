@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\MenuServiceIntarface;
+use App\Services\ArrayMenuService;
 use Illuminate\Support\ServiceProvider;
+use App\Services\SomeServiceInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(MenuServiceIntarface::class, fn() => new ArrayMenuService());
+        $this->app->singleton(SomeServiceInterface::class, fn() => new ArrayMenuService());
     }
 
     /**
