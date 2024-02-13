@@ -1,60 +1,79 @@
 @extends('layout.main')
 @section('content')
-
-    <section id="about" class="bg-blue">
-      <div class="wrapper about">
-        <div class="about__article">
+  <section class="bg-blue">
+    <div class="wrapper introduction">
+      <div class="introduction__content">
+        <h1 class="introduction__title">Меня зовут Иса</h1>
+        <p class="introduction__text">Lorem Ipsum is simply dummy
+          text of the printing and typesetting industry.</p>
+      </div>
+      <div>
+        <img class="introduction_img" src="{{Vite::asset('resources/images/my-img.png')}}" alt="my-img">
+      </div>
+    </div>
+  </section>
+  <section id="my_portfolio">
+    <div class="wrapper">
+      <div class="my_portfolio">
+        <h1 class="my_portfolio__title">Портфолио</h1>
+          @foreach ($projects as $project)
+          <div class="my_portfolio__text-left">
+          <p class="my_portfolio__text">{{$project->name}}</p>
+          </div>
+        <div class="my_portfolio__slide">
+        <div>
+          <img src="{{$project->image_url}}" alt="slide">
+          </div>
+         <div class="my_portfolio__information">
+             @foreach ($project->technologies as $technology)
+         <div class="my_portfolio__text-right">
+              <p class="my_portfolio_line">{{$technology->name}}</p>
+            </div>
+             @endforeach
+              <button class="my_portfolio_btn">Посмотреть</button>
+            </div>
+          </div>
+        @endforeach
+        <div class="my_portfolio__arrows">
+          <img class="arrows-img" src="{{Vite::asset('resources/images/arrows-left.png')}}" alt="arrows-left">
+          <img class="arrows-img" src="{{Vite::asset('resources/images/arrows-right.png')}}" alt="arrows-right">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="bg-blue">
+    <div class="wrapper">
+      <div class="about">
+        <div class="about__left-text">
           <h1 class="about__title">Обо мне</h1>
-          <p class="about__bio">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
+          <p class="about__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.</p>
         </div>
         <div>
-          <div>
-            <img class="about__image" src="images/me.png" />
-          </div>
+          <img class="about-img" src="{{Vite::asset('resources/images/my-img.png')}}" alt="my-img">
         </div>
       </div>
-    </section>
-    <section id="contact" class="bg-grey">
-      <div class="container">
-        <div class="contact">
-          <h1 class="contact__title text-center">Обсудим проект?</h1>
-          <div>
-            <p class="contact__text text-center">
-              Заполните форму обратной связи
-            </p>
+    </div>
+  </section>
+  <section id="discussions">
+    <div class="wrapper">
+      <div class="discussions">
+        <h1 class="discussions__title">Обсудим проект?</h1>
+        <p class="discussions_text">Заполните форму обратной связи</p>
+        <form class="form" action="">
+          <div class="form_contacts">
+            <p class="name">Ваше имя</p>
+            <input type="text" placeholder="Иса">
+            <p class="name">Ваше email</p>
+            <input type="email" placeholder="mail@example.com">
+            <p class="name">Ваш телефон</p>
+            <input type="tel" placeholder="+7 777 777 77 77">
+            <button class="form_contacts__btn">Отправить</button>
           </div>
-          <div>
-            <p>Ваше имя</p>
-            <input class="contact__input" type="text" placeholder="Мустафа" />
-          </div>
-          <div>
-            <p>Ваше email</p>
-            <input
-              id="email"
-              class="contact__input"
-              type="email"
-              placeholder="mail@example.com"
-            />
-          </div>
-          <div>
-            <p>Ваш телефон</p>
-            <input
-              id="phone-mask"
-              class="contact__input"
-              type="text"
-              placeholder="+7928 777 65 55"
-            />
-          </div>
-          <button class="contact__btn">Отправить</button>
-          <p class="contact__text">
-            Или свяжитесь со мной удобным способом связи, расположенным ниже
-          </p>
-        </div>
+        </form>
+        <p class="discussions_text-contact">Или свяжитесь со мной удобным способом связи, расположенным ниже</p>
       </div>
-    </section>
-    @endsection
+    </div>
+  </section>
+@endsection

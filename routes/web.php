@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [IndexController::class, 'main']); 
-Route::get('/qweqwe', [IndexController::class, 'main']);
+Route::get('#my_portfolio', [indexController::class, 'main'])->name(name:'portfolio');
+
+Route::get('#about', [indexController::class, 'main'])->name(name:'about');
+
+Route::get('#contact', [indexController::class, 'main'])->name(name:'contacts');
+
+Route::get('/', [indexController::class, 'main']);
