@@ -1,9 +1,17 @@
+ <?php require_once '../config/connect.php';?>
+<?php
+$sql = $pdo->prepare("SELEQT * FROM  header");
+$sql->execute();
+$res=$sql->fetch(PDO::FETCH_ASSOC);?>
+
+
+
 @extends('layout.main')
 @section('content')
   <section class="bg-blue">
     <div class="wrapper introduction">
       <div class="introduction__content">
-        <h1 class="introduction__title">Меня зовут Иса</h1>
+        <h1 class="introduction__title">Меня зовут Мустафа</h1>
         <p class="introduction__text">Lorem Ipsum is simply dummy
           text of the printing and typesetting industry.</p>
       </div>
@@ -64,7 +72,7 @@
         <form class="form" action="">
           <div class="form_contacts">
             <p class="name">Ваше имя</p>
-            <input type="text" placeholder="Иса">
+            <input type="text" placeholder="Мустафа">
             <p class="name">Ваше email</p>
             <input type="email" placeholder="mail@example.com">
             <p class="name">Ваш телефон</p>

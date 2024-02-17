@@ -8,4 +8,4 @@
       <a href="#about">Обо мне</a>
       <a href="#contact">Контакты</a> --} 
     </nav>
-  </header>vvv
+  </header>

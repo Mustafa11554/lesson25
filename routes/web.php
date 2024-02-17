@@ -21,3 +21,4 @@ Route::get('#about', [indexController::class, 'main'])->name(name:'about');
 Route::get('#contact', [indexController::class, 'main'])->name(name:'contacts');
 
 Route::get('/', [indexController::class, 'main']);
+Route::get('/admin', [indexController::class, 'admin']);
